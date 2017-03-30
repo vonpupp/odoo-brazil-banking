@@ -1,30 +1,12 @@
 # -*- coding: utf-8 -*-
-# #############################################################################
-#
-#    Account Payment Partner module for OpenERP
-#    Copyright (C) 2012 KMEE (http://www.kmee.com.br)
-#    @author Luis Felipe Miléo <mileo@kmee.com.br>
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2012 KMEE (http://www.kmee.com.br)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from odoo import models, fields
 
 
 class PaymentMode(models.Model):
-    _inherit = 'payment.mode'
+    _inherit = 'account.payment.mode'
 
     payment_order_type = fields.Selection(
         selection_add=[
@@ -66,7 +48,7 @@ class PaymentMode(models.Model):
 
 
 class PaymentModeType(models.Model):
-    _inherit = 'payment.mode.type'
+    _inherit = 'account.payment.mode.type'
     _description = 'Payment Mode Type'
 
     payment_order_type = fields.Selection(
@@ -76,7 +58,7 @@ class PaymentModeType(models.Model):
 
 
 class PaymentOrder(models.Model):
-    _inherit = 'payment.order'
+    _inherit = 'account.payment.order'
 
     payment_order_type = fields.Selection(
         selection_add=[
